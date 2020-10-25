@@ -3,13 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array 
-***/
+// An array of objects with the following keys: quote, source, citation, year, and type
 
 let quotes = [
   {
@@ -17,7 +11,7 @@ let quotes = [
     source: 'Charles R. Swindoll',
     citation: '',
     year: '',
-    type: 'Attitude'
+    type: 'Life'
   },
 
   {
@@ -33,7 +27,7 @@ let quotes = [
     source: 'Michael Scott',
     citation: 'The Office',
     year: '2009',
-    type = 'Humor'
+    type: 'Humor'
   },
 
   {
@@ -48,7 +42,7 @@ let quotes = [
     quote: 'The only thing you deserve is what you earn.',
     source: 'Tom Brands',
     citation: '',
-    year: 'Success',
+    year: '',
     type: 'Success'
   },
 
@@ -74,12 +68,24 @@ let quotes = [
     citation: '',
     year: 2013,
     type: 'Personal Growth'
+  },
+  {
+    quote: "Don't wait for the right opportunity: create it.",
+    source: 'George Bernard Shaw',
+    citation: '',
+    year: '',
+    type: 'Success'
+  },
+  {
+    quote: "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    source: 'Victor E. Frankl',
+    citation: 'Man\'s Search for Meaning',
+    year: 2006,
+    type: 'Philosophy'
   }
 ];
 
-/***
- * `getRandomQuote` function
-***/
+// Returns a random object from the quotes array
 
 function getRandomQuote(arr) {
   let randomNumber = Math.floor( Math.random() * arr.length );
@@ -87,7 +93,10 @@ function getRandomQuote(arr) {
 }
 
 
-// Random background color
+/* Returns a random color using RGB color system
+Random color is stored in randomBackgroundColor() function to change the index.html background color
+# Code adapted from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+*/
 
 function randomBackgroundColor() {
   let red = Math.floor( Math.random() * 256);
@@ -98,9 +107,13 @@ function randomBackgroundColor() {
   }
 
 
-/***
- * `printQuote` function
-***/
+/* 
+This function performs the following tasks:
+  1. Selects a random object from the quotes array
+  2. Stores the object keys (quote and source) into a new html string with <p> tags
+  3a. Uses conditional statements to assess whether citation, year, or type are included in the selected object
+  3b. If so, this information is stored in the html string
+*/
 
 function printQuote() {
   let selectedQuote = getRandomQuote(quotes);
@@ -118,15 +131,20 @@ function printQuote() {
     html += `<span class = "type"> ${selectedQuote.type}</span>`
   }
   html += '</p>';
+  
+  // 4. The html string prints the selected object onto the document
   document.getElementById('quote-box').innerHTML = html;  
 
-  document.body.style.background = randomBackgroundColor(); // loads a random background color
-
+  /*
+  5. A random background color is loaded on the document
+  # Code adapted from https://www.w3schools.com/jsref/prop_style_background.asp
+  */
+  document.body.style.background = randomBackgroundColor(); 
 }
 
-// Auto refresh page every 10 seconds
+// The document will refresh a new object onto the document in 5 seconds intervals
 
-setInterval( printQuote, 10000 );
+setInterval( printQuote, 5000 );
 
 
 
