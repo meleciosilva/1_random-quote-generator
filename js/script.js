@@ -5,7 +5,7 @@ project 1 - A Random Quote Generator
 
 // An array of objects with the following keys: quote, source, citation, year, and type
 
-let quotes = [
+const quotes = [
   {
     quote: 'Life is 10% what happens to you and 90% how you react to it.',
     source: 'Charles R. Swindoll',

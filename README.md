@@ -1,4 +1,4 @@
-# Treehouse Project 1
+# Random Quote Generator
 
 This project is a random quote generator.
 
