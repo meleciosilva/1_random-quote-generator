@@ -17,4 +17,4 @@ You may notice that the random quote generator will auto-refresh in 5-seconds, s
 ## Authors
 
 Team Treehouse
-Melecio Silva | Github: @mpsilva94
+Melecio Silva | Github: @meleciosilva
